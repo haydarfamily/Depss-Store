@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teyvat Store - Top Up & Joki Eksplorasi Genshin Impact</title>
+ 
+  <!-- Font Awesome (ikon) via CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+ 
+  <!-- Google Fonts: Cinzel untuk kesan fantasy pada judul, Inter untuk teks -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+ 
+  <!-- File CSS kita -->
+  <link rel="stylesheet" href="bisnis.css">
+</head>
+<body>
+ 
+  <!-- ======================= NAVBAR ======================= -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#home" class="logo">
+        <!-- Ganti assets/logo.svg untuk memakai logo toko sendiri. -->
+        <img src="assets/logo.svg" alt="Logo Depss Store" class="logo-image">
+        <span>Depss Store</span>
+      </a>
+ 
+      <!-- Menu navigasi (desktop) -->
+      <nav class="nav-menu" id="navMenu">
+        <a href="#home" class="nav-link">Home</a>
+        <a href="#topup" class="nav-link">Top Up</a>
+        <a href="#joki" class="nav-link">Joki Eksplorasi</a>
+        <a href="#harga" class="nav-link">Harga</a>
+        <a href="#faq" class="nav-link">FAQ</a>
+        <a href="#kontak" class="nav-link">Kontak</a>
+      </nav>
+ 
+      <!-- Tombol hamburger untuk mobile -->
+      <button class="hamburger" id="hamburger" aria-label="Buka menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+ 
+  <!-- ======================= HERO SECTION ======================= -->
+  <section class="hero" id="home">
+    <div class="hero-bg-glow"></div>
+    <!-- Ganti assets/banner.svg dengan banner .jpg/.png milikmu. -->
+    <div class="hero-banner asset-frame">
+      <img src="assets/banner.svg" alt="Banner Depss Store">
+    </div>
+    <div class="hero-container">
+      <div class="hero-text fade-up">
+        <p class="hero-eyebrow">Teyvat Store</p>
+        <h1 class="hero-title">Top Up &amp; Joki Eksplorasi<br>Genshin Impact</h1>
+        <p class="hero-subtitle">
+          Top Up Genesis Crystals dan percayakan eksplorasi Teyvat kepada kami.
+        </p>
+        <div class="hero-buttons">
+          <a href="#topup" class="btn btn-primary">
+            <i class="fa-solid fa-cart-shopping"></i> Top Up Sekarang
+          </a>
+          <a href="#joki" class="btn btn-secondary">
+            <i class="fa-solid fa-map-location-dot"></i> Lihat Jasa Joki
+          </a>
+        </div>
+      </div>
+ 
+      <!-- Visual/ilustrasi bertema fantasy -->
+      <div class="hero-visual fade-up">
+        <div class="crystal-card">
+          <i class="fa-solid fa-cubes-stacked crystal-icon"></i>
+          <div class="crystal-orbit"></div>
+          <div class="crystal-orbit crystal-orbit-2"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= GALERI KARAKTER ======================= -->
+  <section class="section character-section" id="karakter">
+    <div class="container">
+      <p class="hero-eyebrow reveal">Koleksi Teyvat</p>
+      <h2 class="section-title reveal">Karakter Favoritmu</h2>
+      <p class="section-desc reveal">Tambahkan gambar karakter untuk membuat toko terasa lebih personal.</p>
+
+      <div class="character-grid">
+        <!-- Tambah kartu baru dengan menyalin .character-card dan mengganti src, alt, serta nama. -->
+        <article class="character-card reveal">
+          <div class="character-image asset-frame">
+            <img src="assets/characters/character-1.svg" alt="Karakter pilihan satu">
+          </div>
+          <h3>Character One</h3>
+          <p>Ganti nama dan gambar ini sesuai kebutuhan.</p>
+        </article>
+        <article class="character-card reveal">
+          <div class="character-image asset-frame">
+            <img src="assets/characters/character-2.svg" alt="Karakter pilihan dua">
+          </div>
+          <h3>Character Two</h3>
+          <p>Gunakan gambar dengan rasio portrait.</p>
+        </article>
+        <article class="character-card reveal">
+          <div class="character-image asset-frame">
+            <img src="assets/characters/character-3.svg" alt="Karakter pilihan tiga">
+          </div>
+          <h3>Character Three</h3>
+          <p>Salin kartu ini untuk menambah karakter.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+ 
+  <!-- ======================= SECTION TOP UP ======================= -->
+  <section class="section" id="topup">
+    <div class="container">
+      <h2 class="section-title reveal">Top Up Genesis Crystal</h2>
+      <p class="section-desc reveal">Pilih nominal Genesis Crystal, proses cepat dan aman.</p>
+ 
+      <!-- Grid produk top up, diisi otomatis oleh JavaScript dari data di script.js -->
+      <div class="product-grid" id="topupGrid"></div>
+    </div>
+  </section>
+ 
+  <!-- ======================= SECTION JOKI EKSPLORASI ======================= -->
+  <section class="section section-alt" id="joki">
+    <div class="container">
+      <h2 class="section-title reveal">Joki Eksplorasi Teyvat</h2>
+      <p class="section-desc reveal">
+        Serahkan eksplorasi map Genshin Impact kepada kami. Pilih region dan target
+        persentase eksplorasi yang kamu inginkan.
+      </p>
+ 
+      <!-- Kalkulator harga joki -->
+      <div class="calculator-card reveal">
+        <div class="calc-grid">
+          <div class="form-group">
+            <label for="calcRegion">Region / Map</label>
+            <select id="calcRegion" class="form-control"></select>
+          </div>
+          <div class="form-group">
+            <label for="calcStart">Eksplorasi Awal (%)</label>
+            <select id="calcStart" class="form-control"></select>
+          </div>
+          <div class="form-group">
+            <label for="calcTarget">Target Eksplorasi (%)</label>
+            <select id="calcTarget" class="form-control"></select>
+          </div>
+        </div>
+ 
+        <div class="calc-result" id="calcResult">
+          <span class="calc-result-label">Estimasi biaya</span>
+          <span class="calc-result-value" id="calcPrice">Rp0</span>
+        </div>
+ 
+        <button class="btn btn-primary btn-block" id="btnOrderJoki">
+          <i class="fa-brands fa-whatsapp"></i> Pesan Joki via WhatsApp
+        </button>
+      </div>
+ 
+      <!-- Tabel harga per region -->
+      <h3 class="subheading reveal">Daftar Harga Joki per Region</h3>
+      <div class="price-table-wrap reveal">
+        <table class="price-table" id="priceTable">
+          <thead>
+            <tr>
+              <th>Region</th>
+              <th>0-25%</th>
+              <th>26-50%</th>
+              <th>51-75%</th>
+              <th>76-100%</th>
+            </tr>
+          </thead>
+          <tbody><!-- Diisi otomatis oleh script.js --></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+ 
+  <!-- ======================= SECTION KEUNGGULAN ======================= -->
+  <section class="section" id="harga">
+    <div class="container">
+      <h2 class="section-title reveal">Kenapa Pilih Kami?</h2>
+ 
+      <div class="feature-grid">
+        <div class="feature-card reveal">
+          <i class="fa-solid fa-bolt"></i>
+          <h3>Proses Cepat</h3>
+          <p>Pesanan diproses dalam hitungan menit setelah konfirmasi.</p>
+        </div>
+        <div class="feature-card reveal">
+          <i class="fa-solid fa-shield-halved"></i>
+          <h3>Mengutamakan Keamanan</h3>
+          <p>Kami tidak pernah meminta password atau kode OTP akunmu.</p>
+        </div>
+        <div class="feature-card reveal">
+          <i class="fa-solid fa-sack-dollar"></i>
+          <h3>Harga Terjangkau</h3>
+          <p>Harga bersaing untuk semua layanan top up dan joki.</p>
+        </div>
+        <div class="feature-card reveal">
+          <i class="fa-solid fa-gamepad"></i>
+          <h3>Berpengalaman</h3>
+          <p>Sudah melayani ratusan Traveler di seluruh Teyvat.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+ 
+  <!-- ======================= SECTION CARA ORDER ======================= -->
+  <section class="section section-alt">
+    <div class="container">
+      <h2 class="section-title reveal">Cara Order</h2>
+ 
+      <div class="steps-grid">
+        <div class="step-card reveal">
+          <div class="step-number">1</div>
+          <h3>Pilih Layanan</h3>
+          <p>Pilih Top Up Genesis Crystal atau Joki Eksplorasi Map.</p>
+        </div>
+        <div class="step-card reveal">
+          <div class="step-number">2</div>
+          <h3>Isi Data Pesanan</h3>
+          <p>Lengkapi UID, server, dan detail pesanan pada form.</p>
+        </div>
+        <div class="step-card reveal">
+          <div class="step-number">3</div>
+          <h3>Konfirmasi via WhatsApp</h3>
+          <p>Kirim pesanan otomatis ke WhatsApp admin kami.</p>
+        </div>
+        <div class="step-card reveal">
+          <div class="step-number">4</div>
+          <h3>Pesanan Diproses</h3>
+          <p>Admin memproses pesananmu segera setelah pembayaran.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+ 
+  <!-- ======================= FAQ ======================= -->
+  <section class="section" id="faq">
+    <div class="container container-narrow">
+      <h2 class="section-title reveal">Pertanyaan yang Sering Diajukan</h2>
+ 
+      <div class="accordion" id="accordion">
+        <div class="accordion-item reveal">
+          <button class="accordion-header">
+            Berapa lama proses Top Up?
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="accordion-body">
+            <p>Umumnya proses Top Up selesai dalam 5-15 menit setelah pembayaran dikonfirmasi.</p>
+          </div>
+        </div>
+ 
+        <div class="accordion-item reveal">
+          <button class="accordion-header">
+            Apakah aman melakukan Top Up?
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="accordion-body">
+            <p>Aman. Kami hanya memerlukan UID dan server, tanpa perlu password akunmu.</p>
+          </div>
+        </div>
+ 
+        <div class="accordion-item reveal">
+          <button class="accordion-header">
+            Apakah bisa memilih region map tertentu?
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="accordion-body">
+            <p>Bisa. Kami melayani joki eksplorasi untuk semua region: Mondstadt, Liyue, Inazuma, Sumeru, Fontaine, dan Natlan.</p>
+          </div>
+        </div>
+ 
+        <div class="accordion-item reveal">
+          <button class="accordion-header">
+            Apakah harga joki bisa berubah?
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="accordion-body">
+            <p>Harga dapat berubah sewaktu-waktu mengikuti tingkat kesulitan map terbaru dari update game.</p>
+          </div>
+        </div>
+ 
+        <div class="accordion-item reveal">
+          <button class="accordion-header">
+            Apakah perlu memberikan password akun?
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="accordion-body">
+            <p>Tidak pernah. Demi keamanan akun, jangan pernah memberikan password atau kode OTP kepada pihak lain, termasuk kami.</p>
+          </div>
+        </div>
+ 
+        <div class="accordion-item reveal">
+          <button class="accordion-header">
+            Bagaimana cara melakukan pemesanan?
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="accordion-body">
+            <p>Pilih layanan yang diinginkan, isi form pemesanan, lalu kirim pesanan melalui tombol WhatsApp yang tersedia.</p>
+          </div>
+        </div>
+      </div>
+ 
+      <div class="security-note reveal">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        <p>
+          Demi keamanan akun, jangan pernah memberikan password atau kode OTP kepada pihak lain.
+          Jika suatu layanan membutuhkan akses akun, pastikan kamu memahami risikonya dan selalu
+          mengikuti prosedur keamanan yang aman.
+        </p>
+      </div>
+    </div>
+  </section>
+ 
+  <!-- ======================= FOOTER ======================= -->
+  <footer class="footer" id="kontak">
+    <div class="container footer-grid">
+      <div class="footer-col">
+        <a href="#home" class="logo">
+          <img src="assets/logo.svg" alt="Logo Depss Store" class="logo-image">
+          <span>Depss Store</span>
+        </a>
+        <p>Layanan Top Up Genesis Crystal dan Joki Eksplorasi Map Genshin Impact tepercaya.</p>
+      </div>
+ 
+      <div class="footer-col">
+        <h4>Navigasi</h4>
+        <a href="#home">Home</a>
+        <a href="#topup">Top Up</a>
+        <a href="#joki">Joki Eksplorasi</a>
+        <a href="#faq">FAQ</a>
+      </div>
+ 
+      <div class="footer-col">
+        <h4>Hubungi Kami</h4>
+        <a href="https://wa.me/6287717175972" target="_blank" rel="noopener">
+          <i class="fa-brands fa-whatsapp"></i> WhatsApp
+        </a>
+        <a href="https://instagram.com/" target="_blank" rel="noopener">
+          <i class="fa-brands fa-instagram"></i> Instagram
+        </a>
+        <a href="https://tiktok.com/" target="_blank" rel="noopener">
+          <i class="fa-brands fa-tiktok"></i> TikTok
+        </a>
+      </div>
+    </div>
+ 
+    <div class="footer-bottom">
+      <p>&copy; 2026 Depss Store. All Rights Reserved.</p>
+      <p class="disclaimer">
+        Genshin Impact adalah merek milik HoYoverse. Website ini merupakan contoh konsep toko
+        layanan pihak ketiga dan tidak berafiliasi secara resmi dengan HoYoverse.
+      </p>
+    </div>
+  </footer>
+ 
+  <!-- ======================= MODAL FORM TOP UP ======================= -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal-box">
+      <button class="modal-close" id="modalClose" aria-label="Tutup">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+ 
+      <h3 class="modal-title">Form Pemesanan Top Up</h3>
+      <p class="modal-subtitle" id="modalProductName">60 Genesis Crystal - Rp15.000</p>
+ 
+      <form id="orderForm">
+        <div class="form-group">
+          <label for="inputUID">UID Genshin Impact</label>
+          <input type="text" id="inputUID" class="form-control" placeholder="Contoh: 812345678" required>
+        </div>
+ 
+        <div class="form-group">
+          <label for="inputServer">Server</label>
+          <select id="inputServer" class="form-control" required>
+            <option value="Asia">Asia</option>
+            <option value="America">America</option>
+            <option value="Europe">Europe</option>
+            <option value="TW/HK/MO">TW/HK/MO</option>
+          </select>
+        </div>
+ 
+        <div class="form-group">
+          <label for="inputNominal">Nominal Top Up</label>
+          <select id="inputNominal" class="form-control" required></select>
+        </div>
+ 
+        <div class="form-group">
+          <label for="inputNama">Nama / Username Pembeli</label>
+          <input type="text" id="inputNama" class="form-control" placeholder="Nama kamu" required>
+        </div>
+ 
+        <div class="form-group">
+          <label for="inputWA">Nomor WhatsApp</label>
+          <input type="tel" id="inputWA" class="form-control" placeholder="08xxxxxxxxxx" required>
+        </div>
+ 
+        <p class="form-note">
+          <i class="fa-solid fa-lock"></i> Kami tidak pernah meminta password atau kode OTP akunmu.
+        </p>
+ 
+        <button type="submit" class="btn btn-primary btn-block">
+          <i class="fa-brands fa-whatsapp"></i> Pesan via WhatsApp
+        </button>
+      </form>
+    </div>
+  </div>
+ 
+  <!-- File JavaScript kita, ditaruh di akhir body -->
+  <script src="bisnis.js"></script>
+</body>
+</html>
+ 
